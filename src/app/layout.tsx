@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Toaster } from "sonner";
 import "./globals.css";
 
@@ -30,6 +31,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col">
         {children}
         <Toaster position="bottom-right" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NGHX778RF3"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NGHX778RF3');
+          `}
+        </Script>
       </body>
     </html>
   );
