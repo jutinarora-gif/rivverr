@@ -30,6 +30,12 @@ const BYPASS = process.env.ALLOW_ALL_COUNTRIES === "1";
 
 const PASSTHROUGH_PATHS = ["/blocked", "/favicon.ico", "/robots.txt", "/sitemap.xml", "/llms.txt"];
 
+// Legitimate crawlers and verification tools bypass the geo-block: indexing
+// and analytics tag checks are desirable regardless of where the request
+// happens to originate from, even though real visitors are US-only.
+const CRAWLER_UA_PATTERN =
+  /googlebot|google-inspectiontool|adsbot-google|mediapartners-google|google-read-aloud|bingbot|duckduckbot|slurp|baiduspider|yandexbot|facebookexternalhit|twitterbot|linkedinbot|applebot|google-site-verification|gtmetrix|pingdom|uptimerobot|lighthouse|pagespeed/i;
+
 type CacheEntry = { country: string | null; expires: number };
 const geoCache = new Map<string, CacheEntry>();
 const CACHE_TTL_MS = 30 * 60 * 1000;
@@ -87,6 +93,11 @@ export async function proxy(req: NextRequest) {
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api")
   ) {
+    return NextResponse.next();
+  }
+
+  const userAgent = req.headers.get("user-agent") ?? "";
+  if (CRAWLER_UA_PATTERN.test(userAgent)) {
     return NextResponse.next();
   }
 
