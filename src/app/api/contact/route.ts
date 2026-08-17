@@ -37,7 +37,7 @@ export async function POST(req: Request) {
   }
 
   const resend = new Resend(apiKey);
-  const from = process.env.RESEND_FROM || "Rivverr <onboarding@resend.dev>";
+  const from = process.env.RESEND_FROM || "Rivverr <noreply@rivverr.com>";
   const to = process.env.RESEND_TO || BRAND.email;
 
   const pkgLabel = PKG_NAMES[pkg] ?? pkg ?? "not given";
