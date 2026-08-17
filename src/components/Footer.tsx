@@ -15,7 +15,7 @@ export function Footer() {
           <div className="label flex flex-col gap-3 md:col-span-3">
             <span className="text-muted-foreground">Menu</span>
             <Link href="/" className="hover:text-primary">
-              Studio
+              Home
             </Link>
             <Link href="/work" className="hover:text-primary">
               Work

@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   description:
     "Custom, design-led websites for US businesses. Fixed packages from $600, live in 7 days.",
   authors: [{ name: "Rivverr" }],
-  openGraph: { type: "website" },
+  robots: { index: true, follow: true },
+  openGraph: { type: "website", siteName: "Rivverr" },
   twitter: { card: "summary_large_image" },
 };
 

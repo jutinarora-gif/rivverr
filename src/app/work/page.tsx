@@ -14,7 +14,8 @@ const DESC =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
-  openGraph: { title: TITLE, description: DESC, type: "website" },
+  alternates: { canonical: "/work" },
+  openGraph: { title: TITLE, description: DESC, type: "website", url: "/work" },
   twitter: { card: "summary_large_image" },
 };
 
@@ -36,7 +37,7 @@ export default function Work() {
           inside the window we promised at discovery. Click any card to visit the site.
         </p>
 
-        <div className="mt-14 grid gap-x-5 gap-y-12 md:mt-20 md:gap-y-16 md:grid-cols-2">
+        <div className="mt-14 grid gap-x-5 gap-y-16 md:mt-20 md:gap-y-20 md:grid-cols-2">
           {PROJECTS.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.08}>
               <a
@@ -44,17 +45,17 @@ export default function Work() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={`Visit ${p.client} at ${p.domain}`}
-                className={`group block ${i % 2 === 1 ? "md:mt-24" : ""}`}
+                className="group block"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative overflow-hidden border border-foreground/10" style={{ aspectRatio: "2000 / 920" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={p.image}
                     alt={`${p.client} website designed and built by Rivverr`}
                     loading={i < 2 ? "eager" : "lazy"}
-                    width={1200}
-                    height={1500}
-                    className="duotone h-full w-full object-cover group-hover:scale-[1.02]"
+                    width={2000}
+                    height={920}
+                    className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                   <span className="label absolute left-4 top-4 bg-background/85 px-3 py-1.5 text-primary backdrop-blur">
                     {p.pkg} · ${p.pkg === "Ripple" ? 600 : p.pkg === "Current" ? 900 : 1200}

@@ -20,7 +20,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.4 }}
         className="label relative flex items-baseline justify-between gap-4 text-muted-foreground"
       >
         <span>Design & development studio</span>
@@ -35,7 +35,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="standfirst mt-6 text-center text-foreground/80"
         >
           <em>{BRAND.line}</em>
@@ -45,7 +45,7 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="rule relative grid gap-6 pt-8 md:grid-cols-12 md:items-end md:gap-8"
       >
         <p className="measure text-[0.95rem] leading-relaxed text-muted-foreground md:col-span-5">

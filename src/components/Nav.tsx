@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const LINKS = [
-  { to: "/", label: "Studio" },
   { to: "/work", label: "Work" },
   { to: "/contact", label: "Start" },
 ] as const;

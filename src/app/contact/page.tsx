@@ -9,7 +9,8 @@ const DESC =
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
-  openGraph: { title: TITLE, description: DESC, type: "website" },
+  alternates: { canonical: "/contact" },
+  openGraph: { title: TITLE, description: DESC, type: "website", url: "/contact" },
   twitter: { card: "summary_large_image" },
 };
 

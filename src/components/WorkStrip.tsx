@@ -19,17 +19,10 @@ export function WorkStrip() {
           lead="Recent builds across media, publishing, reference and SaaS. Every one shipped inside the window we quoted."
         />
 
-        <div className="mt-14 grid gap-x-14 gap-y-16 md:mt-24 md:gap-y-24 md:grid-cols-12">
+        <div className="mt-14 grid gap-x-10 gap-y-16 md:mt-24 md:gap-y-20 md:grid-cols-2">
           {plates.map((p, i) => {
-            const odd = i % 2 === 1;
             return (
-              <Reveal
-                key={p.slug}
-                delay={0.05}
-                className={
-                  odd ? "md:col-span-5 md:col-start-8 md:mt-32" : "md:col-span-6 md:col-start-1"
-                }
-              >
+              <Reveal key={p.slug} delay={0.05}>
                 <a
                   href={p.url}
                   target="_blank"
@@ -37,16 +30,16 @@ export function WorkStrip() {
                   className="group block"
                   aria-label={`Visit ${p.client} at ${p.domain}`}
                 >
-                  <figure className="overflow-hidden">
+                  <figure className="overflow-hidden border border-foreground/10">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={p.image}
                       alt={`${p.client} website designed and built by Rivverr`}
                       loading="lazy"
-                      width={1200}
-                      height={1500}
-                      className="duotone h-full w-full object-cover group-hover:scale-[1.02]"
-                      style={{ aspectRatio: odd ? "4 / 5" : "5 / 4" }}
+                      width={2000}
+                      height={920}
+                      className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                      style={{ aspectRatio: "2000 / 920" }}
                     />
                   </figure>
                   <figcaption className="mt-6 flex items-baseline justify-between gap-6 border-t border-foreground/20 pt-4">

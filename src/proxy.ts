@@ -28,7 +28,7 @@ const ALLOWED_COUNTRY = "US";
 // not blocked by your own non-US dev IP or an unresolvable localhost lookup.
 const BYPASS = process.env.ALLOW_ALL_COUNTRIES === "1";
 
-const PASSTHROUGH_PATHS = ["/blocked", "/favicon.ico", "/robots.txt", "/sitemap.xml"];
+const PASSTHROUGH_PATHS = ["/blocked", "/favicon.ico", "/robots.txt", "/sitemap.xml", "/llms.txt"];
 
 type CacheEntry = { country: string | null; expires: number };
 const geoCache = new Map<string, CacheEntry>();
