@@ -244,7 +244,7 @@ export const PROJECTS: Project[] = [
     headline:
       "A jewellery storefront built around a single idea, gold vermeil and cat-eye stone pieces, each one named for what it argues for.",
     result: "A brand voice that carries through every product page",
-    image: "/work/everyday-theory-v2.png",
+    image: "/work/everyday-theory-final.png",
   },
   {
     slug: "founders-playbook",
