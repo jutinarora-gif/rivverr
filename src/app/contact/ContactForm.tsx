@@ -18,31 +18,59 @@ export function ContactForm() {
   const pkgParam = searchParams.get("pkg");
   const initial = pkgParam && VALID_PKGS.has(pkgParam as (typeof PACKAGES)[number]["id"]) ? pkgParam : "current";
   const [selected, setSelected] = useState<string>(initial);
+  const [sending, setSending] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const name = String(data.get("name") || "");
     const email = String(data.get("email") || "");
     if (!name || !email) {
       toast.error("Name and email, please. That's all we need to reply.");
       return;
     }
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Company: ${data.get("company") || "not given"}`,
-      `Current site: ${data.get("site") || "not given"}`,
-      `Package: ${selected}`,
-      `Deadline: ${data.get("deadline") || "not given"}`,
-      "",
-      "Project:",
-      String(data.get("details") || "not given"),
-    ].join("\n");
-    window.location.href = `mailto:${BRAND.email}?subject=${encodeURIComponent(
-      `New project from ${name}`,
-    )}&body=${encodeURIComponent(body)}`;
-    toast.success("Opening your email client. We reply within 24 hours.");
+
+    const payload = {
+      name,
+      email,
+      company: String(data.get("company") || ""),
+      site: String(data.get("site") || ""),
+      pkg: selected,
+      deadline: String(data.get("deadline") || ""),
+      details: String(data.get("details") || ""),
+    };
+
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("send failed");
+      toast.success("Sent. We reply within 24 hours.");
+      form.reset();
+      setSelected("current");
+    } catch {
+      const body = [
+        `Name: ${payload.name}`,
+        `Email: ${payload.email}`,
+        `Company: ${payload.company || "not given"}`,
+        `Current site: ${payload.site || "not given"}`,
+        `Package: ${payload.pkg}`,
+        `Deadline: ${payload.deadline || "not given"}`,
+        "",
+        "Project:",
+        payload.details || "not given",
+      ].join("\n");
+      window.location.href = `mailto:${BRAND.email}?subject=${encodeURIComponent(
+        `New project from ${name}`,
+      )}&body=${encodeURIComponent(body)}`;
+      toast.error("Couldn't send automatically, opening your email client instead.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -100,9 +128,10 @@ export function ContactForm() {
 
             <button
               type="submit"
-              className="label group inline-flex items-center justify-between border border-primary bg-primary px-6 py-5 text-primary-foreground transition-colors hover:bg-transparent hover:text-primary"
+              disabled={sending}
+              className="label group inline-flex items-center justify-between border border-primary bg-primary px-6 py-5 text-primary-foreground transition-colors hover:bg-transparent hover:text-primary disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Send the brief
+              {sending ? "Sending…" : "Send the brief"}
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </button>
 
