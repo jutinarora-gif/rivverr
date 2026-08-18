@@ -30,6 +30,13 @@ const BYPASS = process.env.ALLOW_ALL_COUNTRIES === "1";
 
 const PASSTHROUGH_PATHS = ["/blocked", "/favicon.ico", "/robots.txt", "/sitemap.xml", "/llms.txt"];
 
+// Owner preview access: visiting /?bypass=<PREVIEW_BYPASS_TOKEN> once sets a
+// cookie that skips the geo-block for that browser, so the site owner can
+// see the live site (e.g. to build ads) without a US VPN. Set
+// PREVIEW_BYPASS_TOKEN in the environment to enable; unset disables it.
+const PREVIEW_COOKIE = "rivverr_preview";
+const PREVIEW_TOKEN = process.env.PREVIEW_BYPASS_TOKEN;
+
 // Legitimate crawlers and verification tools bypass the geo-block: indexing
 // and analytics tag checks are desirable regardless of where the request
 // happens to originate from, even though real visitors are US-only.
@@ -99,6 +106,26 @@ export async function proxy(req: NextRequest) {
   const userAgent = req.headers.get("user-agent") ?? "";
   if (CRAWLER_UA_PATTERN.test(userAgent)) {
     return NextResponse.next();
+  }
+
+  if (PREVIEW_TOKEN) {
+    const queryToken = req.nextUrl.searchParams.get("bypass");
+    if (queryToken === PREVIEW_TOKEN) {
+      const url = req.nextUrl.clone();
+      url.searchParams.delete("bypass");
+      const res = NextResponse.redirect(url);
+      res.cookies.set(PREVIEW_COOKIE, PREVIEW_TOKEN, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "lax",
+        maxAge: 60 * 60 * 24 * 180,
+        path: "/",
+      });
+      return res;
+    }
+    if (req.cookies.get(PREVIEW_COOKIE)?.value === PREVIEW_TOKEN) {
+      return NextResponse.next();
+    }
   }
 
   const edgeCountry = req.headers.get("x-vercel-ip-country") ?? req.headers.get("cf-ipcountry");
