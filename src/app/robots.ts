@@ -5,6 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
+      disallow: ["/blocked"],
     },
     sitemap: "https://rivverr.com/sitemap.xml",
   };
