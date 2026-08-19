@@ -1,6 +1,6 @@
 # Rivverr
 
-> Rivverr is a small design and development studio based in India, building custom, design-led websites exclusively for United States businesses. Three fixed-price packages, delivered in 7 to 21 days, no templates or themes.
+> Rivverr is a small design and development studio building custom, design-led websites exclusively for United States businesses. Three fixed-price packages, delivered in 7 to 21 days, no templates or themes.
 
 Rivverr is not a generic web agency or freelance marketplace. It sells three fixed packages — Ripple ($600, 7 days, up to 4 pages), Current ($900, 14 days, up to 8 pages, CMS-backed), and Delta ($1,200, 21 days, unlimited pages, full backend) — each with a fixed price, fixed delivery date, and full client ownership of the finished site (code, design files, domain, hosting).
 

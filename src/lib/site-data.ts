@@ -272,7 +272,7 @@ export const FAQS = [
   },
   {
     q: "How is $600 possible?",
-    a: "We're a small studio based in India working with US clients. No offices, no account managers, no sales team taking a cut. You pay for design and engineering, nothing else. The craft is the same; the overhead isn't.",
+    a: "We're a small, lean studio working with US clients. No offices, no account managers, no sales team taking a cut. You pay for design and engineering, nothing else. The craft is the same; the overhead isn't.",
   },
   {
     q: "Who actually does the work?",

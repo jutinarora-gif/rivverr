@@ -20,7 +20,7 @@ export function Facts() {
         <div className="mt-14 grid gap-12 md:mt-20 md:gap-16 md:grid-cols-12">
           <Reveal className="md:col-span-7">
             <p className="standfirst measure text-foreground">
-              Rivverr is a small studio in India working with American clients. No offices, no account
+              Rivverr is a small, focused studio working with American clients. No offices, no account
               managers, no sales floor taking a cut of your budget. What you pay for is design and
               engineering, and you get the same standard the expensive people sell you.
             </p>

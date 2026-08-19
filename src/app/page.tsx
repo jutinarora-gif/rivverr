@@ -30,7 +30,6 @@ const jsonLd = {
   name: "Rivverr",
   description: DESC,
   areaServed: "United States",
-  address: { "@type": "PostalAddress", addressLocality: "New Delhi", addressCountry: "IN" },
   email: "info@rivverr.com",
   priceRange: "$600-$1200",
   makesOffer: [

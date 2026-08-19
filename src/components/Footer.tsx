@@ -29,7 +29,6 @@ export function Footer() {
             <a href={`mailto:${BRAND.email}`} className="hover:text-primary">
               {BRAND.email}
             </a>
-            <span className="text-muted-foreground">New Delhi, India</span>
             <span className="text-muted-foreground">Working US hours</span>
           </div>
         </div>
