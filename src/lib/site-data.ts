@@ -199,11 +199,11 @@ export const PROJECTS: Project[] = [
     client: "Coworking Dispatch",
     url: "https://www.coworkingdispatch.com",
     domain: "coworkingdispatch.com",
-    sector: "Media · Coworking industry, India-first",
+    sector: "Media · Coworking industry",
     year: "2025",
     pkg: "Current",
     headline:
-      "Live price intelligence across 278 tracked coworking spaces in 12 Indian cities, plus editor-picked rankings and dispatches on the industry.",
+      "Live price intelligence across 278 tracked coworking spaces in 12 cities, plus editor-picked rankings and dispatches on the industry.",
     result: "A searchable, constantly-updating index the team runs itself",
     image: "/work/coworking-dispatch.png",
   },
@@ -212,7 +212,7 @@ export const PROJECTS: Project[] = [
     client: "Leidenschaft",
     url: "https://www.leidenschaft.in",
     domain: "leidenschaft.in",
-    sector: "Ecommerce · Concrete home decor, India",
+    sector: "Ecommerce · Concrete home decor",
     year: "2025",
     pkg: "Ripple",
     headline:
@@ -238,7 +238,7 @@ export const PROJECTS: Project[] = [
     client: "Everyday Theory",
     url: "https://everydaytheory.com",
     domain: "everydaytheory.com",
-    sector: "Ecommerce · Fine jewellery, India",
+    sector: "Ecommerce · Fine jewellery",
     year: "2025",
     pkg: "Current",
     headline:
