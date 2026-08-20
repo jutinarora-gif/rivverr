@@ -27,7 +27,7 @@ export default function Work() {
       <main className="mx-auto max-w-[1500px] px-5 pt-32 md:px-10 md:pt-44">
         <div className="label flex justify-between text-muted-foreground">
           <span className="text-primary">Index of work</span>
-          <span>2024 to 2025</span>
+          <span>2024 to 2026</span>
         </div>
         <h1 className="headline mt-6 text-[clamp(2.6rem,11vw,10rem)]">
           Built. Shipped. <em className="text-primary">Working.</em>

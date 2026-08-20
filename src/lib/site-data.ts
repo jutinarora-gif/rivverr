@@ -200,7 +200,7 @@ export const PROJECTS: Project[] = [
     url: "https://www.coworkingdispatch.com",
     domain: "coworkingdispatch.com",
     sector: "Media · Coworking industry",
-    year: "2025",
+    year: "2026",
     pkg: "Current",
     headline:
       "Live price intelligence across 278 tracked coworking spaces in 12 cities, plus editor-picked rankings and dispatches on the industry.",
@@ -213,7 +213,7 @@ export const PROJECTS: Project[] = [
     url: "https://www.leidenschaft.in",
     domain: "leidenschaft.in",
     sector: "Ecommerce · Concrete home decor",
-    year: "2025",
+    year: "2026",
     pkg: "Ripple",
     headline:
       "A storefront for sculptural, handcrafted concrete lighting, tables and artworks, built to carry the same quiet elegance as the pieces themselves.",
@@ -226,7 +226,7 @@ export const PROJECTS: Project[] = [
     url: "https://whathappened.wiki",
     domain: "whathappened.wiki",
     sector: "Community Q&A · Local history",
-    year: "2025",
+    year: "2026",
     pkg: "Delta",
     headline:
       "A no-signup, no-ads Q&A where people crowdsource what happened to the shops, diners and landmarks the internet forgot to record.",
@@ -239,7 +239,7 @@ export const PROJECTS: Project[] = [
     url: "https://everydaytheory.com",
     domain: "everydaytheory.com",
     sector: "Ecommerce · Fine jewellery",
-    year: "2025",
+    year: "2026",
     pkg: "Current",
     headline:
       "A jewellery storefront built around a single idea, gold vermeil and cat-eye stone pieces, each one named for what it argues for.",
@@ -252,7 +252,7 @@ export const PROJECTS: Project[] = [
     url: "https://foundersplaybook.co",
     domain: "foundersplaybook.co",
     sector: "Content · Guides for first-time founders",
-    year: "2025",
+    year: "2026",
     pkg: "Delta",
     headline:
       "129 free, jargon-free guides on marketing, operations, finance and hiring, organized so a first-time founder always knows the next step.",
